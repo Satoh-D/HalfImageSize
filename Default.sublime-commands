@@ -1,0 +1,14 @@
+[
+	{
+		"caption": "HalfImageSize: half_image_size(current selection)",
+		"command": "half_image_size"
+	},
+	{
+		"caption": "HalfImageSize: half_image_size(current line)",
+		"command": "half_image_size_line"
+	},
+	{
+		"caption": "HalfImageSize: half_image_size(all string)",
+		"command": "half_image_size_all"
+	}
+]

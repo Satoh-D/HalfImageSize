@@ -1,0 +1,11 @@
+[
+	{
+		"keys": ["ctrl+alt+h"], "command": "half_image_size"
+	},
+	{
+		"keys": ["ctrl+shift+h"], "command": "half_image_size_line"
+	},
+	{
+		"keys": ["ctrl+alt+shift+h"], "command": "half_image_size_all"
+	}
+]
