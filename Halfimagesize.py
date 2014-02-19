@@ -7,6 +7,10 @@ def halveWidthHeightNum(matchobj):
 	halved_string = '%s="%d"' % (matchobj.group(1), halved_num)
 	return halved_string
 
+def moveCaretPosition(self, point):
+	self.view.sel().clear()
+	self.view.sel().add(sublime.Region(point))
+
 class HalfImageSizeCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 
@@ -20,7 +24,7 @@ class HalfImageSizeCommand(sublime_plugin.TextCommand):
 class HalfImageSizeLineCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 
-		#get current caret position
+		# get current caret position
 		current_caret_position = self.view.sel()[0].begin()
 		current_line_begin_point = self.view.line(current_caret_position).begin()
 		current_line_end_point = self.view.line(current_caret_position).end()
@@ -32,14 +36,20 @@ class HalfImageSizeLineCommand(sublime_plugin.TextCommand):
 		halved_string = wh_matcher.sub(halveWidthHeightNum, current_line_string)
 
 		self.view.replace(edit, current_line_region, halved_string)
+		moveCaretPosition(self, current_caret_position)
+
 
 class HalfImageSizeAllCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 
+		# get current caret position
+
 		# selected all charactors
 		all_region = sublime.Region(0, self.view.size())
 		selected_string = self.view.substr(all_region)
+		current_caret_position = self.view.sel()[0].begin()
 
 		halved_string = wh_matcher.sub(halveWidthHeightNum, selected_string)
 
 		self.view.replace(edit, all_region, halved_string)
+		moveCaretPosition(self, current_caret_position)
