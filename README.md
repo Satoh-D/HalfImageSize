@@ -3,8 +3,8 @@ HalfImageSize
 
 ## HalfImageSizeについて
 
-Sublime Text2用のプラグインです。
-img要素のwidth, heightの値を半分にします。
+Sublime Text2用のプラグインです。  
+img要素のwidth, heightの値を半分にします。  
 スマホサイトを作る場合に便利な痒いところに手が届くプラグインとなっています。
 
 ## 使い方
